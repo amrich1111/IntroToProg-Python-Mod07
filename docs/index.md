@@ -51,6 +51,9 @@ input("Press Enter to Exit")
 ![Figure 7.1 - Output from Listing 1](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/e24dffc08440dcabc68fe5f3b7934a0c28465c81/docs/assets/7.1.png)
 *Figure 7.1 - Output from Listing 1*
 
+![Figure 7.1 - Output from Listing 1](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.1.png?raw=true)
+*Figure 7.1 - Output from Listing 1*
+
 In Listing 1, there is an example of the dump method being used to save user input to a binary file. First, we need to import the module so we can access the pickling functions. Next, a binary file must be defined to write our objects to, in this case our binary file uses the extension ‘.abt’ versus ‘.txt’ which is used for text files. The program then receives user input, and stores it as a list to a variable. Then, we get to pickling.
 
 First, a file is opened, using the .open() method. A difference to note here is the mode used to tell the program how to interact with the file. Since we are working with binary files, the modes will be different compared to saving data to text files. When handling text files, we used modes such as ‘w’, ‘r’, and ‘a’ – when handling binary files we use ‘wb’, ‘rb’, and ‘ab’. In this case, since we are writing new data to our binary file, we use the ‘wb’ as our mode. If the file already exists, its contents will be overwritten, if it doesn’t exist, the file will be created.
