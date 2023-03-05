@@ -6,9 +6,9 @@ In the following documentation we explore the pickling and exception handling fe
 
 ## Binary vs. Text Files in Python
 
-Python can handle loads of different variables and objects and save them to files. So far, we have become more familiar with working with text (.txt) files and saving user input to them. A limitation of text files is their inability to store complex objects such as entire lists or dictionaries. In order to save lists or dictionaries to text files you must iterate over them, and save individual parts of the larger object to the file. 
+Python can handle loads of different variables and objects and save them to files. So far, we have become more familiar with text (.txt) files and saving user input to them. A limitation of text files is their inability to store complex objects such as entire lists or dictionaries. In order to save lists or dictionaries to text files you must iterate over them, and save individual parts of the larger object to the file. 
 
-An alternative to using text files, which would require packing and unpacking lists into variables from text, is to store these complex objects in binary files. In order to effectively store data to binary files, an additional Python module needs to be utilized which will be explored further in the following section.
+An alternative to using text files, is to store these complex objects in binary files. In order to effectively store data to binary files, an additional Python module needs to be utilized which will be explored further in the following section.
 
 ## Pickling in Python
 
