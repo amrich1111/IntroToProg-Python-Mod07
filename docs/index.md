@@ -48,8 +48,6 @@ binary_file.close() # Close file
 print(f"Your data was saved!\n{pickled_list}\n")
 input("Press Enter to Exit")
 ```
-![Figure 7.1 - Output from Listing 1](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/e24dffc08440dcabc68fe5f3b7934a0c28465c81/docs/assets/7.1.png)
-*Figure 7.1 - Output from Listing 1*
 
 ![Figure 7.1 - Output from Listing 1](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.1.png?raw=true)
 *Figure 7.1 - Output from Listing 1*
@@ -80,7 +78,7 @@ print(f"Your data was loaded!\n{unpickled_list}\n")
 input("Press Enter to Exit")
 ```
 
-![Figure 7.2 - Output from Listing 2](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.2.png)
+![Figure 7.2 - Output from Listing 2](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.2.png?raw=true)
 *Figure 7.2 - Output from Listing 2*
 
 Data can also be unpickled from binary files using the ‘rb’ mode and pickle.load() method. Unpickling a binary object, reads the binary code and translates it back into its original object form in Python. In Listing 2, we see a similar setup as Listing 1, however we now have changed the mode in the .open() method to ‘rb’ – telling Python to read data from the binary file. In order to translate the binary back into our original object, we use the .load() method which takes the file name as an argument. Once Python has loaded and stored the binary data back into a variable, we are able to access its original form (Figure 7.2).
@@ -177,7 +175,7 @@ elif user_choice == '3':
 elif user_choice == '4':
   input("\nPress Enter to Exit")
 ```
-![Figure 7.3 - Output from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.3.png)
+![Figure 7.3 - Output from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.3.png?raw=true)
 *Figure 7.3 - Output from Listing 4*
 
 In Listing 4, we see a demonstration of how the append mode can be used when handling binary files. Write and append execute very similar tasks – both utilize the .dump() method to add new data to a binary file. The one key difference when you decide to write versus append is the existing data in the file. Defining ‘ab’ as the mode when opening a file tells the program you want to preserve all the file’s existing data, but add to it. The ‘wb’ mode will overwrite all existing data in the file. Similar to write, the append mode will create a new file if one does not already exist.
@@ -204,7 +202,7 @@ user_rate = int(input("Rate your day (1 - 10): "))
 print(f"\nDate: {user_date}\nMood: {user_mood}\nDaily Rating: {user_rate}\n")
 input("Press Enter to Exit")
 ```
-![Figure 7.4 - Error outputted from Listing 5](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.4.png)
+![Figure 7.4 - Error outputted from Listing 5](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.4.png?raw=true)
 *Figure 7.4 - Error outputted from Listing 5*
 
 Listing 5 demonstrates a potential error that our Mood Tracker may face when handling user input. When working with user input, errors could arise if the inputted data is not the intended type. For example, in Figure 7.4, we see an error has occurred because the user has inputted text where the program expected an integer. 
@@ -227,14 +225,14 @@ while True:
 print(f"\nDate: {user_date}\nMood: {user_mood}\nDaily Rating: {user_rate}\n")
 input("Press Enter to Exit")
 ```
-![Figure 7.5 - Output from Listing 6](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.5.png)
+![Figure 7.5 - Output from Listing 6](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.5.png?raw=true)
 *Figure 7.5 - Output from Listing 6*
 
 To account for this potential input and avoid a failed program – we can use a try-except block. In Listing 6, a try-except block was implemented to catch this potential error. First, the program will try to get the user’s input. For any reason, if the input causes the program to throw an error, it will move onto the except code, where developers can tell the user that something has gone wrong. As seen in Figure 7.5, the user, again, has inputted text where the program expected an integer. Instead of raising an error, the program moves onto the code in the except statement which tells the user that something was wrong with their input and they need to try again.
 
 ### Handling Exceptions by Error Type
 
-![Figure 7.6 - Error outputted from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.6.png)
+![Figure 7.6 - Error outputted from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.6.png?raw=true)
 *Figure 7.6 - Error outputted from Listing 4*
 
 Errors are also common when handling files. One of the main exceptions to consider is when a program attempts to read from a file, but the file does not already exist. Unlike the write or append modes, the read mode will not create a new file if one doesn’t already exist. As seen in Figure 7.6, if a user attempts to read data from a file before it is created, the program will result in a ‘FileNotFoundError’. We could implement a simple try-except block to account for this as we did above, however this is not as useful to the user. When handling errors, Python allows you to define exceptions for different error types, which can help users determine what has gone wrong.
@@ -255,7 +253,7 @@ elif user_choice == '3':
      print(f"A {e.__class__.__name__} error has occurred!")
 ```
 
-![Figure 7.7 - Output from Listing 7](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.7.png)
+![Figure 7.7 - Output from Listing 7](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.7.png?raw=true)
 *Figure 7.7 - Output from Listing 7*
 
 In Listing 7, the read portion of the Listing 4 code has been updated with a try-except block. In the except statement, the ‘FileNotFoundError’ is specified which then tells the program to do something specific when this error arises. In this example, if the user attempts to read from a file that does not exist – the program will tell the user the file does not exist and to add data to create a file (Figure 7.7). This is much more useful to the user rather than displaying a simple error message. When developers handle errors by type, their program can run smoothly while also informing the user exactly what has gone wrong and how to change their input.
@@ -493,12 +491,12 @@ Listing 9 shows an enhanced version of Listing 8 - implementing a while loop to 
 
 ### Executing in the Command Window
 
-![Figure 7.8 - Executing Listing 9 in the Command Shell](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.8.png)
+![Figure 7.8 - Executing Listing 9 in the Command Shell](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.8.png?raw=true)
 *Figure 7.8 - Executing Listing 9 in the Command Shell*
 
 ### Executing in PyCharm
 
-![Figure 7.9 - Executing Listing 9 in PyCharm](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.9.png)
+![Figure 7.9 - Executing Listing 9 in PyCharm](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.9.png?raw=true)
 *Figure 7.8 - Executing Listing 9 in PyCharm*
 
 The final Listing 9 script was successfully executed in both the Command Window (Figure 7.8) and PyCharm (Figure 7.9). Each feature of the program was tested (writing, reading, and appending) and outputted expected results in both environments.
