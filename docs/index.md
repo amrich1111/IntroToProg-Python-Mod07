@@ -74,7 +74,7 @@ input("Press Enter to Exit")
 ![Figure 7.2 - Output from Listing 2](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.2.png)
 *Figure 7.2 - Output from Listing 2*
 
-Data can also be unpickled from binary files using the pickle module’s ‘rb’ mode and .load() method. Unpickling a binary object restores it to its original form in Python. In Listing 2, we see a similar setup as Listing 1, however we now have changed the mode in the .open() method to ‘rb’ – telling Python to read data from the binary file. In order to translate the binary back into our original object, we use the .load() method which takes the file name as an argument. Once Python has loaded and stored the binary data back into a variable, we are able to access its original form (Figure 7.2).
+Data can also be unpickled from binary files using the ‘rb’ mode and pickle.load() method. Unpickling a binary object, reads the binary code and translates it back into its original object form in Python. In Listing 2, we see a similar setup as Listing 1, however we now have changed the mode in the .open() method to ‘rb’ – telling Python to read data from the binary file. In order to translate the binary back into our original object, we use the .load() method which takes the file name as an argument. Once Python has loaded and stored the binary data back into a variable, we are able to access its original form (Figure 7.2).
 
 An important note: If multiple objects are expected to be outputted from a binary file, the .load() method must be called multiple times. We will get into this further in the following section.
 
@@ -105,7 +105,7 @@ with open(pickle_file, "wb") as binary_file: # Open/create new binary file to wr
 print(f"\nYour data was saved!\n{pickled_list}\n")
 input("Press Enter to Exit")
 ```
-When opening and closing files in Python, the ‘with’ statement can be utilized to clean up your code a bit and make it more readable. Listing 3 executes the same function as Listing 1, however the ‘with’ statement is used alongside the .open() method. The ‘with’ statement will close the file for you since it is managing the file stream. Using ‘with’ can help manage exceptions that may arise when handling files, in this scenario either ‘with’ or .close() can be used effectively to achieve the same output as seen in Listing 1 and Listing 3.
+When opening and closing files in Python, the ‘with’ statement can be utilized to clean up your code a bit and make it more readable. Listing 3 executes the same function as Listing 1, however the ‘with’ statement is used alongside the .open() method. The ‘with’ statement will close the file for you since it is managing the file stream([Manthanchauhan, 2022](https://www.geeksforgeeks.org/with-statement-in-python/)). Using ‘with’ can help manage exceptions that may arise when handling files, in this scenario either ‘with’ or .close() can be used effectively to achieve the same output as seen in Listing 1 and Listing 3.
 
 ### Appending with Pickle
 
@@ -168,8 +168,8 @@ elif user_choice == '3':
 elif user_choice == '4':
   input("\nPress Enter to Exit")
 ```
-![Figure 7.3 - Output from Listing 3](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.3.png)
-*Figure 7.3 - Output from Listing 3*
+![Figure 7.3 - Output from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.3.png)
+*Figure 7.3 - Output from Listing 4*
 
 In Listing 4, we see a demonstration of how the append mode can be used when handling binary files. Write and append execute very similar tasks – both utilize the .dump() method to add new data to a binary file. The one key difference when you decide to write versus append is the existing data in the file. Defining ‘ab’ as the mode when opening a file tells the program you want to preserve all the file’s existing data, but add to it. The ‘wb’ mode will overwrite all existing data in the file. Similar to write, the append mode will create a new file if one does not already exist.
 
@@ -178,7 +178,7 @@ In Figure 7.3, the user appends a new entry to their tracker. One thing to note 
 ## Handling Exception Errors
 When a program cannot run as expected, Python will return an error and will not continue running. There are multiple different cases where errors can occur, some are due to syntax, data types, indexes, files, amongst others.
 
-Errors can be detrimental to a program because once they occur, the program will not finish executing or result in an unexpected output. However, some errors are inevitable to occur when working with files and user input. In Python, to avoid this, there are strategies to handle errors to ensure the program runs smoothly.
+Errors can be detrimental to a program because once they occur, the program will not finish executing or result in an unexpected output. Some errors are inevitable when working with files and user input. In Python, to avoid this, there are strategies to handle errors to ensure the program runs smoothly for the user and as intended by the developer.
 
 ### Try Except Blocks
 Utilizing try and except in programs is a great way to handle errors in Python to avoid any problems that may occur.
@@ -221,7 +221,7 @@ input("Press Enter to Exit")
 ![Figure 7.5 - Output from Listing 6](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.5.png)
 *Figure 7.5 - Output from Listing 6*
 
-To account for this potential input and avoid a failed program – we can use a try-except block. In Listing 6, a try-except block was implemented to catch this potential error. First, the program will try to get the user’s input. For any reason, if the input causes the program to throw an error, it will move onto the except code where developers can tell the user that something has gone wrong. As seen in Figure 7.5, the user, again, has inputted text where the program expected an integer. Instead of raising an error, the program moves onto the code in the except statement which tells the user that something was wrong with their input and they need to try again.
+To account for this potential input and avoid a failed program – we can use a try-except block. In Listing 6, a try-except block was implemented to catch this potential error. First, the program will try to get the user’s input. For any reason, if the input causes the program to throw an error, it will move onto the except code, where developers can tell the user that something has gone wrong. As seen in Figure 7.5, the user, again, has inputted text where the program expected an integer. Instead of raising an error, the program moves onto the code in the except statement which tells the user that something was wrong with their input and they need to try again.
 
 ### Handling Exceptions by Error Type
 
@@ -249,9 +249,9 @@ elif user_choice == '3':
 ![Figure 7.7 - Output from Listing 7](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.7.png)
 *Figure 7.7 - Output from Listing 7*
 
-In Listing 7, the read portion of the Listing 4 code has been updated with a try-except block. In the except statement, the ‘FileNotFoundError’ is specified which then tells the program to do something specific when this error arises. In this example, if the user attempts to read from a file that does not exist – the program will tell the user the file does not exist and to add data to create a file (Figure 7.7). This is much more useful to the user rather than displaying a simple error message. When developers handle errors by type, their program can run smoothly while also informing the user exactly what has gone wrong and potentially how to change their input.
+In Listing 7, the read portion of the Listing 4 code has been updated with a try-except block. In the except statement, the ‘FileNotFoundError’ is specified which then tells the program to do something specific when this error arises. In this example, if the user attempts to read from a file that does not exist – the program will tell the user the file does not exist and to add data to create a file (Figure 7.7). This is much more useful to the user rather than displaying a simple error message. When developers handle errors by type, their program can run smoothly while also informing the user exactly what has gone wrong and how to change their input.
 
-When handling errors by type, it can also be beneficial to have a final ‘catch all’ exception in case unexpected errors come up. In the final two lines of Listing 7, we define an exception and then print the name of the error back to the user using the .__class__.__name.__ attribute of the exception raised by Python.
+When handling errors by type, it can also be beneficial to have a final ‘catch all’ exception in case unexpected errors come up. In the final two lines of Listing 7, we define an exception and then print the name of the error back to the user using the .__class__.__name.__ attribute of the exception raised by Python. Although this is not extremely helpful, it will give the user a better understanding of what has happened in the program.
 
 ## Final Scripts
 
@@ -342,7 +342,7 @@ input("\nPress Enter to Exit")
 
 Now, putting all the pieces together – Listing 8 shows a single run program that allows users to track their daily mood by adding new entries or view all of their current entries. The program starts off by welcoming the user and displaying a menu of options for the user to choose from. Based on the user’s selection, they are able to add new data by writing or appending entries to the binary file and they are able to view all the entries currently in the binary file by loading and unpickling the data. Throughout each section, try-except blocks are utilized to catch potential errors caused by user input or the current file states. The program goes further to define exceptions for specific errors to display more useful information back to the user.
 
-As highlighted in Listing 8, with pickling and unpickling objects, it is important to effectively handle exceptions to ensure the program runs smoothly. One notable change which was made in this final code, was implementing an additional try-except within the ‘read’ block. As mentioned in previous sections, if there are multiple objects in a binary file, the .load() method must be called multiple times to load all the data. In previous listings, only the first object from the file would be outputted when trying to display the current data. To ensure all the data is loaded and the program does not throw an exception once its reached the end – a try-except block was implemented within a while loop to continuously load data until the program reached the end. 
+As highlighted in Listing 8, with pickling and unpickling objects, it is important to effectively handle exceptions to ensure the program runs smoothly. One notable change which was made in this final code, was implementing an additional try-except within the ‘read’ block. As mentioned in previous sections, if there are multiple objects in a binary file, the .load() method must be called multiple times to load all the data. In previous listings, only the first object from the file would be outputted when trying to display the current data. To ensure all the data is loaded and the program does not throw an error – a try-except block was implemented within a while loop to continuously load data until the program reached the end of the binary file. 
 
 #### Listing 9
 
@@ -471,7 +471,7 @@ while True:
       continue
 ```
 
-Listing 9 shows an enhanced version of Listing 8 - implementing a while loop to keep the program continuously running until the user chooses to exit and defining functions for some of the repetitive tasks in the program, like adding new entries. The program also improves the display of data once it is read from the binary file, formatting to be more readable and user friendly.
+Listing 9 shows an enhanced version of Listing 8 - implementing a while loop to keep the program continuously running until the user chooses to exit and defining functions for some of the repetitive tasks in the program, such as adding new entries. The program also improves the display of data once it is read from the binary file, formatting to be more readable and user friendly.
 
 ## Final Outputs
 
@@ -502,3 +502,4 @@ The Mood Tracker program developed in this documentation showcases pickling and 
 ### Exception Handling in Python
 -  [Python Exceptions: An Introduction](https://realpython.com/python-exceptions/)
 -  [Exception & Error Handling in Python](https://www.datacamp.com/tutorial/exception-handling-python)
+-  [with Statement in Python](https://www.geeksforgeeks.org/with-statement-in-python/)
