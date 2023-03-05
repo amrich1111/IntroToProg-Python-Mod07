@@ -1,8 +1,10 @@
 # Pickling & Error Handling in Python
 
-**Developer: Aimee Richardson**
-Course: IT FDN 110 - Foundation of Programming: Python
-GitHub Repository: [Link](https://github.com/amrich1111/IntroToProg-Python-Mod07)
+**Developer**: Aimee Richardson
+
+**Course**: IT FDN 110 - Foundation of Programming: Python
+
+**GitHub Repository**: [Link](https://github.com/amrich1111/IntroToProg-Python-Mod07)
 
 ## Introduction
 
