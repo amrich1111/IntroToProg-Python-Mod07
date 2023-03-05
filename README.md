@@ -3,5 +3,5 @@ This repository holds information and Python code related to Pickling and Strctu
 
 Full Documentation: [Pickling & Exception Handling in Python](https://amrich1111.github.io/IntroToProg-Python-Mod07/)
 
-
+**Dev: AimeeR**
 
