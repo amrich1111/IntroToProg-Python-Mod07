@@ -508,11 +508,17 @@ The Mood Tracker program developed in this documentation showcases pickling and 
 
 ### Pickling in Python
 
-- [Python Pickling](https://www.tutorialspoint.com/python-pickling)
-- [Using the Python pickle Module (video)](https://www.youtube.com/watch?v=XzkhtWYYojg)
-- [Pickle.load() Method in Python](https://pythontic.com/modules/pickle/load)
+* [Python Pickling](https://www.tutorialspoint.com/python-pickling)
+  - *Good general resource for pickling methods with code examples and potential errors that developers could encounter when pickling.*
+* [Using the Python pickle Module (video)](https://www.youtube.com/watch?v=XzkhtWYYojg)
+  - *Short and simple video that demonstrates both writing and loading data from binary files. Utilizes multiple data types and demonstrates pickling with a class object.*
+* [Pickle.load() Method in Python](https://pythontic.com/modules/pickle/load)
+  - *More information on the .load() pickle method which can be a bit more tricky to work with.*
 
 ### Exception Handling in Python
--  [Python Exceptions: An Introduction](https://realpython.com/python-exceptions/)
--  [Exception & Error Handling in Python](https://www.datacamp.com/tutorial/exception-handling-python)
--  [with Statement in Python](https://www.geeksforgeeks.org/with-statement-in-python/)
+*  [Python Exceptions: An Introduction](https://realpython.com/python-exceptions/)
+    - *Good introductory source that goes through try-except blocks in Python and some additional exception handling clauses.*
+*  [Exception & Error Handling in Python](https://www.datacamp.com/tutorial/exception-handling-python)
+    - *Lots of good information on error handling with example code. Goes into how to utilize exceptions more in-depth.*
+*  [with Statement in Python](https://www.geeksforgeeks.org/with-statement-in-python/)
+    - *Goes more in-depth on the with statement and why it would be more advantageous to use in programs.*
