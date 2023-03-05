@@ -1,18 +1,23 @@
 # Pickling & Error Handling in Python
 
 ## Introduction
+
 In the following documentation we explore the pickling and exception handling features in Python. When handling binary files, the use of both pickling and exception handling together is important to ensure your program runs as intended. Pickling in Python allows programs to serialize and store complex objects to a file. In the following sections, we will walk through pickling and exception handling in Python while building a Mood Tracker. This program will allow users to input data to add new entries, access existing entries, and view all entries from a binary file.
 
 ## Binary vs. Text Files in Python
+
 Python can handle loads of different variables and objects and save them to files. So far, we have become more familiar with working with text (.txt) files and saving user input to them. A limitation of text files is their inability to store complex objects such as entire lists or dictionaries. In order to save lists or dictionaries to text files you must iterate over them, and save individual parts of the larger object to the file. 
 
 An alternative to using text files, which would require packing and unpacking lists into variables from text, is to store these complex objects in binary files. In order to effectively store data to binary files, an additional Python module needs to be utilized which will be explored further in the following section.
 
 ## Pickling in Python
+
 The Pickle module in Python allows programmers to access multiple methods which facilitate the task of storing data in binary files. Pickle is a unique package that can be imported into any Python program when developers need to store complex objects to files. The following sections will go a bit more in depth regarding the pickle.dump() and pickle.load() methods and how those differ from how we might work with storing data in text files.
 
 ### Dumping with Pickle (Writing Data to a Binary File)
+
 #### Listing 1
+
 ``` python
 import pickle
 
@@ -47,7 +52,9 @@ First, a file is opened, using the .open() method. A difference to note here is 
 Next, the list object that stores the user’s data is ‘dumped’ to the binary file using the .dump() method. This method takes the object to save and the file name as arguments. Once completed, the data has successfully been serialized in binary code and saved to the file (Figure 7.1).
 
 ### Loading with Pickle (Reading Data from a Binary File)
+
 #### Listing 2
+
 ``` python
 import pickle
 
@@ -72,7 +79,9 @@ Data can also be unpickled from binary files using the pickle module’s ‘rb�
 An important note: If multiple objects are expected to be outputted from a binary file, the .load() method must be called multiple times. We will get into this further in the following section.
 
 ### Using ‘with’ when Opening Files 
+
 #### Listing 3
+
 ``` python
 import pickle
 
@@ -99,7 +108,9 @@ input("Press Enter to Exit")
 When opening and closing files in Python, the ‘with’ statement can be utilized to clean up your code a bit and make it more readable. Listing 3 executes the same function as Listing 1, however the ‘with’ statement is used alongside the .open() method. The ‘with’ statement will close the file for you since it is managing the file stream. Using ‘with’ can help manage exceptions that may arise when handling files, in this scenario either ‘with’ or .close() can be used effectively to achieve the same output as seen in Listing 1 and Listing 3.
 
 ### Appending with Pickle
+
 #### Listing 4
+
 ``` python
 import pickle
 
@@ -173,6 +184,7 @@ Errors can be detrimental to a program because once they occur, the program will
 Utilizing try and except in programs is a great way to handle errors in Python to avoid any problems that may occur.
 
 #### Listing 5
+
 ``` python
 # Get user input
 user_date = str(input("Enter today's date: ")).strip()
@@ -189,6 +201,7 @@ input("Press Enter to Exit")
 Listing 5 demonstrates a potential error that our Mood Tracker may face when handling user input. When working with user input, errors could arise if the inputted data is not the intended type. For example, in Figure 7.4, we see an error has occurred because the user has inputted text where the program expected an integer. 
 
 #### Listing 6
+
 ``` python
 # Get user input
 user_date = str(input("Enter today's date: ")).strip()
@@ -211,12 +224,14 @@ input("Press Enter to Exit")
 To account for this potential input and avoid a failed program – we can use a try-except block. In Listing 6, a try-except block was implemented to catch this potential error. First, the program will try to get the user’s input. For any reason, if the input causes the program to throw an error, it will move onto the except code where developers can tell the user that something has gone wrong. As seen in Figure 7.5, the user, again, has inputted text where the program expected an integer. Instead of raising an error, the program moves onto the code in the except statement which tells the user that something was wrong with their input and they need to try again.
 
 ### Handling Exceptions by Error Type
+
 ![Figure 7.6 - Error outputted from Listing 4](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.6.png)
 *Figure 7.6 - Error outputted from Listing 4*
 
 Errors are also common when handling files. One of the main exceptions to consider is when a program attempts to read from a file, but the file does not already exist. Unlike the write or append modes, the read mode will not create a new file if one doesn’t already exist. As seen in Figure 7.6, if a user attempts to read data from a file before it is created, the program will result in a ‘FileNotFoundError’. We could implement a simple try-except block to account for this as we did above, however this is not as useful to the user. When handling errors, Python allows you to define exceptions for different error types, which can help users determine what has gone wrong.
 
 #### Listing 7
+
 ``` python
 # Read data from binary file
 elif user_choice == '3':
@@ -239,7 +254,9 @@ In Listing 7, the read portion of the Listing 4 code has been updated with a try
 When handling errors by type, it can also be beneficial to have a final ‘catch all’ exception in case unexpected errors come up. In the final two lines of Listing 7, we define an exception and then print the name of the error back to the user using the .__class__.__name.__ attribute of the exception raised by Python.
 
 ## Final Scripts
+
 ### Listing 8
+
 ``` python
 import pickle
 
@@ -328,6 +345,7 @@ Now, putting all the pieces together – Listing 8 shows a single run program th
 As highlighted in Listing 8, with pickling and unpickling objects, it is important to effectively handle exceptions to ensure the program runs smoothly. One notable change which was made in this final code, was implementing an additional try-except within the ‘read’ block. As mentioned in previous sections, if there are multiple objects in a binary file, the .load() method must be called multiple times to load all the data. In previous listings, only the first object from the file would be outputted when trying to display the current data. To ensure all the data is loaded and the program does not throw an exception once its reached the end – a try-except block was implemented within a while loop to continuously load data until the program reached the end. 
 
 #### Listing 9
+
 ``` python
 import pickle
 
@@ -456,10 +474,31 @@ while True:
 Listing 9 shows an enhanced version of Listing 8 - implementing a while loop to keep the program continuously running until the user chooses to exit and defining functions for some of the repetitive tasks in the program, like adding new entries. The program also improves the display of data once it is read from the binary file, formatting to be more readable and user friendly.
 
 ## Final Outputs
+
 ### Executing in the Command Window
+
 ![Figure 7.8 - Executing Listing 9 in the Command Shell](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.8.png)
 *Figure 7.8 - Executing Listing 9 in the Command Shell*
+
 ### Executing in PyCharm
+
 ![Figure 7.9 - Executing Listing 9 in PyCharm](https://github.com/amrich1111/IntroToProg-Python-Mod07/blob/main/docs/assets/7.9.png)
 *Figure 7.8 - Executing Listing 9 in PyCharm*
+
+The final Listing 9 script was successfully executed in both the Command Window (Figure 7.8) and PyCharm (Figure 7.9). Each feature of the program was tested (writing, reading, and appending) and outputted expected results in both environments.
+
 ## Summary
+
+The Mood Tracker program developed in this documentation showcases pickling and error handling in Python. In the final product, the user is able to write, read, and append data to their tracker – in Python this required the use of pickling and unpickling data from a binary file to securely store and retrieve data the user had entered. In addition, working with user input and files can often result in program errors. To mitigate any issues, try-except blocks were implemented throughout the program to effectively handle any potential problems the user may face when entering or interacting with their data.
+
+## Additional Resources
+
+### Pickling in Python
+
+- [Python Pickling](https://www.tutorialspoint.com/python-pickling)
+- [Using the Python pickle Module (video)](https://www.youtube.com/watch?v=XzkhtWYYojg)
+- [Pickle.load() Method in Python](https://pythontic.com/modules/pickle/load)
+
+### Exception Handling in Python
+-  [Python Exceptions: An Introduction](https://realpython.com/python-exceptions/)
+-  [Exception & Error Handling in Python](https://www.datacamp.com/tutorial/exception-handling-python)
