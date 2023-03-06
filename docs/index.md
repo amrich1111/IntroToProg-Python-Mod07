@@ -2,6 +2,8 @@
 
 **Developer**: Aimee Richardson
 
+**Assignment**: Assignment07
+
 **Course**: IT FDN 110 - Foundation of Programming: Python
 
 **GitHub Repository**: [Link](https://github.com/amrich1111/IntroToProg-Python-Mod07)
